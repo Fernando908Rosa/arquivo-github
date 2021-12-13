@@ -1,30 +1,27 @@
 package application;
 
-import java.io.BufferedWriter;
-import java.io.FileWriter;
-import java.io.IOException;
+import java.io.File;
+import java.util.Scanner;
 
 public class Programas {
 
-
 	public static void main(String[] args) {
 		
-		String[] lines = new String[] { "Good morning", "Good afternoon", "Good night"};
-		
-		String path = "c:\\temp\\out.txt";
-		
-		try (BufferedWriter bw = new BufferedWriter(new FileWriter(path, true))) {
-			for (String line : lines) {
-				bw.write(line);
-				bw.newLine();
-			}
-		}
-        catch (IOException e) {
-        	e.printStackTrace();
+	    Scanner sc = new Scanner(System.in);
+	    
+	    System.out.println("Enter a file path: ");
+	    String strPath = sc.nextLine();
+	    
+	    File path = new File(strPath);
+	    
+	   System.out.println("getName: " + path.getName());
+	   System.out.println("getParent:" + path.getParent());
+	   System.out.println("getPath: " + path.getPath());
 	   
+	    sc.close();
         }	
 	}
-}
+
 	
 		
 	
